@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeaderGuard — Get Alerted When Your Security Headers Change</title>
+  <meta name="description" content="HeaderGuard monitors your HTTP security headers 24/7 and alerts you the moment HSTS, CSP, or X-Frame-Options changes. Never lose a security header in a deployment again.">
+  <link rel="canonical" href="https://lior-seats.github.io/headerguard-waitlist/">
+  <meta property="og:title" content="HeaderGuard — Security Header Change Monitoring">
+  <meta property="og:description" content="Get alerted when your HTTP security headers change. HSTS, CSP, X-Frame-Options monitoring. $9/month.">
+  <meta property="og:url" content="https://lior-seats.github.io/headerguard-waitlist/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HeaderGuard — Security Header Change Monitoring">
+  <meta name="twitter:description" content="Monitor HTTP security headers. Get alerted when HSTS, CSP, or X-Frame-Options changes. $9/month.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; }
+    .hero { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 60%); padding: 5rem 1rem 4rem; text-align: center; }
+    .badge { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: #a5b4fc; padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2rem,5vw,3rem); font-weight: 800; color: #f8fafc; line-height: 1.15; margin-bottom: 1rem; }
+    h1 span { color: #6366f1; }
+    .sub { font-size: 1.15rem; color: #94a3b8; max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .form-row { display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto; justify-content: center; }
+    input[type="email"] { flex: 1; padding: 0.8rem 1rem; background: #1e293b; border: 1px solid #475569; border-radius: 8px; color: #f1f5f9; font-size: 1rem; outline: none; min-width: 0; }
+    input[type="email"]:focus { border-color: #6366f1; }
+    input[type="email"]::placeholder { color: #64748b; }
+    .btn-primary { padding: 0.8rem 1.5rem; background: #6366f1; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .btn-primary:hover { background: #4f46e5; }
+    .btn-primary:disabled { background: #475569; cursor: not-allowed; }
+    .success-msg { color: #34d399; font-weight: 600; margin-top: 1rem; display: none; }
+    .error-msg { color: #f87171; margin-top: 1rem; display: none; }
+    .free-tool-link { margin-top: 1.5rem; font-size: 0.9rem; color: #64748b; }
+    .free-tool-link a { color: #6366f1; text-decoration: none; }
+    .free-tool-link a:hover { text-decoration: underline; }
+    .price-note { margin-top: 0.75rem; font-size: 0.85rem; color: #64748b; }
+    section { padding: 4rem 1rem; max-width: 960px; margin: 0 auto; }
+    h2 { font-size: 1.75rem; font-weight: 700; color: #f8fafc; text-align: center; margin-bottom: 2rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .feature-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; }
+    .feature-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .feature-card h3 { font-size: 1.05rem; color: #f1f5f9; margin-bottom: 0.5rem; }
+    .feature-card p { color: #94a3b8; font-size: 0.92rem; line-height: 1.6; }
+    .pricing-box { background: linear-gradient(135deg, #1e1b4b, #1e293b); border: 2px solid #6366f1; border-radius: 16px; padding: 2.5rem; text-align: center; max-width: 420px; margin: 0 auto; }
+    .price { font-size: 3rem; font-weight: 800; color: #f8fafc; }
+    .price span { font-size: 1rem; color: #94a3b8; font-weight: 400; }
+    .early-access { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; margin: 1rem 0 1.5rem; display: inline-block; }
+    .pricing-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+    .pricing-features li { padding: 0.4rem 0; color: #cbd5e1; font-size: 0.95rem; }
+    .pricing-features li::before { content: "✓ "; color: #34d399; }
+    footer { text-align: center; padding: 2rem 1rem; color: #475569; font-size: 0.85rem; }
+    footer a { color: #6366f1; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 500px) { .form-row { flex-direction: column; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HeaderGuard",
+    "url": "https://lior-seats.github.io/headerguard-waitlist/",
+    "description": "HeaderGuard monitors your HTTP security headers 24/7 and alerts you when HSTS, CSP, X-Frame-Options, or any other security header changes.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type": "Offer", "price": "9", "priceCurrency": "USD"},
+    "author": {"@type": "Person", "name": "lior-seats"}
+  }
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge">🔐 Security Header Monitoring</div>
+    <h1>Get alerted when your<br><span>security headers</span> change</h1>
+    <p class="sub">A single deployment can silently remove your HSTS policy, CSP rules, or X-Frame-Options header. HeaderGuard monitors your headers 24/7 and alerts you the moment anything changes.</p>
+    <div class="form-row">
+      <input type="email" id="heroEmail" placeholder="your@email.com">
+      <button class="btn-primary" onclick="joinWaitlist('heroEmail','heroSuccess','heroError')">Join Waitlist</button>
+    </div>
+    <div id="heroSuccess" class="success-msg">✅ You're on the list! We'll notify you when HeaderGuard launches.</div>
+    <div id="heroError" class="error-msg">Something went wrong. Please try again.</div>
+    <p class="price-note">$9/month · Early access pricing — locked in forever</p>
+    <p class="free-tool-link">Check your security headers now → <a href="https://lior-seats.github.io/security-headers-checker/">Free Security Headers Checker</a></p>
+  </div>
+
+  <section>
+    <h2>One Deployment Can Undo All Your Security Work</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="icon">⚡</span>
+        <h3>Instant change alerts</h3>
+        <p>Email the moment any header appears, disappears, or changes value — not hours later when a customer finds it.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🔒</span>
+        <h3>All 6 headers monitored</h3>
+        <p>HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy — the full security surface.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">📊</span>
+        <h3>Grade history</h3>
+        <p>See how your security posture changes over time. Know whether each deploy improved or degraded your header grades.</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🏢</span>
+        <h3>Monitor up to 10 domains</h3>
+        <p>Cover your main domain, subdomains, staging environments, and client sites — all under one subscription.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#1e293b;max-width:100%;padding:4rem 1rem;">
+    <div style="max-width:960px;margin:0 auto;">
+      <h2>Simple, Honest Pricing</h2>
+      <div class="pricing-box">
+        <div class="price">$9<span>/month</span></div>
+        <div class="early-access">🎉 Early access pricing — locked in forever</div>
+        <ul class="pricing-features">
+          <li>Monitor up to 10 domains</li>
+          <li>Instant email alerts on any header change</li>
+          <li>All 6 security headers tracked</li>
+          <li>Letter grade history per domain</li>
+          <li>Checks every 24 hours</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <input type="email" id="pricingEmail" placeholder="your@email.com" style="width:100%;padding:0.75rem 1rem;background:#0f172a;border:1px solid #475569;border-radius:8px;color:#f1f5f9;font-size:1rem;margin-bottom:0.75rem;outline:none;">
+        <button class="btn-primary" style="width:100%;" onclick="joinWaitlist('pricingEmail','pricingSuccess','pricingError')">Join the Waitlist</button>
+        <div id="pricingSuccess" class="success-msg">✅ You're on the list!</div>
+        <div id="pricingError" class="error-msg">Something went wrong. Please try again.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    HeaderGuard · <a href="https://lior-seats.github.io/security-headers-checker/">Free security headers checker</a> · Built by <a href="https://github.com/lior-seats">lior-seats</a>
+  </footer>
+
+  <script>
+    fetch('https://agent-control-plane-w3m9.onrender.com/api/hit?page=headerguard-waitlist', { mode: 'no-cors' }).catch(() => {});
+
+    async function joinWaitlist(inputId, successId, errorId) {
+      const email = document.getElementById(inputId).value.trim();
+      if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+      const btn = event.target;
+      btn.disabled = true;
+      const orig = btn.textContent;
+      btn.textContent = 'Joining…';
+      try {
+        const r = await fetch('https://agent-control-plane-w3m9.onrender.com/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'headerguard' })
+        });
+        if (r.ok) {
+          document.getElementById(successId).style.display = 'block';
+          document.getElementById(inputId).value = '';
+        } else { throw new Error('non-ok'); }
+      } catch {
+        document.getElementById(errorId).style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = orig;
+      }
+    }
+  </script>
+</body>
+</html>
